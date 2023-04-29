@@ -2,9 +2,17 @@ import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import './LoginPage.css'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
 const LoginPage = () => {
   const [details, setDetails] = useState({ email: "", password: "" })
   const nav = useNavigate();
+  const dispatch =useDispatch();
+  const adduser=(user)=>{
+    dispatch({
+      type:"setuser",
+      payload:user
+    })
+  }
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDetails((prevState) => ({
@@ -25,9 +33,8 @@ const LoginPage = () => {
       })
       .then((res) => {
         if (res.status === 200) {
-        
-          nav("/");
-
+          res.data.user.role==="ADMIN" ? nav("/admin/dashboard") : nav("/");
+          adduser(res.data.user)
         }
 
       })
@@ -37,8 +44,8 @@ const LoginPage = () => {
     <div className="loginpage">
       <div className="container">
         <div className="left">
-          <h1 className="brand">VMstudio</h1>
-          <p>code with vm2124 </p>
+          <h1 className="brand">shopee</h1>
+          <p> Let's get Checkout</p>
         </div>
         <div className="right">
           <form method='POST' onSubmit={handleSubmit} >
