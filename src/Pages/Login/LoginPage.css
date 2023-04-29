@@ -1,0 +1,35 @@
+.loginpage{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.frm{
+    display: flex;
+    flex-direction: column;
+
+}
+.container{
+    background-color: white;
+    padding: 60px;
+    border-radius: 25px;
+}
+.success{
+    background-color: aqua;
+    color: black;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-top: 5px;
+    padding: 5px;
+}
+.nameconcat input{
+    margin-right: 5px;
+}

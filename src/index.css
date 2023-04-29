@@ -5,9 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: aliceblue;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.in1{
+  outline: none;
+  border: none;
+  margin-bottom: 5px;
+  height: 25px;
+ 
+  border-bottom: 1px solid black;
+  
+}
+.lgbutton{
+  background-color: rgb(176, 176, 255);
+  outline: none;
+  border: none;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  width: 100%;
 }
