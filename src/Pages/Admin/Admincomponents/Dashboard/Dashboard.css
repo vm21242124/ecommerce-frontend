@@ -1,0 +1,38 @@
+.dashboard{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dashboardtop{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    justify-content: space-around;
+}
+.DashboardOrders{
+    height: 75%;
+}
+.dashboardtoporderstats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border-radius: 10px;
+}
+.DashboardOrdersTop{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(18, 18, 18);
+    color: white;
+    margin-top: 5px;
+    height: 50px;
+    border-bottom: 1px solid white;
+}
+.DashboardOrdersScroll{
+    overflow-y:auto;
+    
+    height: 90%;
+    background-color: rgb(61, 61, 61);
+}
