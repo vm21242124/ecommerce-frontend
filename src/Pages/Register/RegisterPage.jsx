@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { checkpass } from "../../HelperFunctions/authHelper.js";
 import axios from "axios";
 
 const RegisterPage = () => {
@@ -25,13 +24,13 @@ const RegisterPage = () => {
     const name = details.fname + " " + details.lname;
     const email = details.email;
 
-    if (checkpass(details.password, details.cpassword)) {
+    if (details.password === details.cpassword) {
       const pass = details.password;
       axios
         .post("http://127.0.0.1:5000/api/user/register", {
           name,
           email,
-          password:pass,
+          password: pass,
         })
         .then((res) => {
           if (res.status === 200) {

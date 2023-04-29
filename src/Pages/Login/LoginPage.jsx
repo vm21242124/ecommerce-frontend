@@ -1,7 +1,38 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './LoginPage.css'
+import axios from 'axios'
 const LoginPage = () => {
+  const [details, setDetails] = useState({ email: "", password: "" })
+  const nav = useNavigate();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDetails((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const email = details.email;
+
+    const pass = details.password;
+    axios
+      .post("http://localhost:5000/api/user/signin", {
+        email,
+        password: pass,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+        
+          nav("/");
+
+        }
+
+      })
+      .catch((e) => console.log(e));
+  }
   return (
     <div className="loginpage">
       <div className="container">
@@ -10,20 +41,24 @@ const LoginPage = () => {
           <p>code with vm2124 </p>
         </div>
         <div className="right">
-          <form >
+          <form method='POST' onSubmit={handleSubmit} >
             <div className="frm">
               <input
                 className="in1"
                 type="email"
                 placeholder="email"
-                // onChange={(e) => setEmail(e.target.value)}
+                name='email'
+                value={details.email}
+                onChange={handleChange}
                 required={true}
               />
               <input
                 className="in1"
                 type="password"
                 placeholder="password"
-                // onChange={(e) => setPassword(e.target.value)}
+                name='password'
+                value={details.password}
+                onChange={handleChange}
                 required={true}
               />
             </div>
