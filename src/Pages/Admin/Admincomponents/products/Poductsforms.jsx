@@ -63,7 +63,9 @@ export const CreateProductforms = () => {
 export const GetAllProducts=()=>{
     return(
         <div className="GetAllProducts">
-            
+            <div className="topindenxing">
+                <span>product name</span><span>categories</span><span>price</span><span>stock</span>
+            </div>
         </div>
     )
 }
