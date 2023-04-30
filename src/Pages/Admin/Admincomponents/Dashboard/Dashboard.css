@@ -32,7 +32,10 @@
 }
 .DashboardOrdersScroll{
     overflow-y:auto;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
     height: 90%;
     background-color: rgb(61, 61, 61);
 }
