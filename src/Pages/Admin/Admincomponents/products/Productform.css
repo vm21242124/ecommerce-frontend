@@ -26,15 +26,55 @@
 /* get all products  */
 .GetAllProducts{
     width: 100%;
+    display: flex;
+    flex-direction: column;
     height: 95%;
     background-color: rgb(34, 34, 34);
+    color: white;
 }
 .topindenxing{
     display: flex;
     width: 100%;
-    justify-content: space-around;
     color: white;
     align-items: center;
     background-color: black;
     height: 50px;
+    justify-content: space-around;
+}
+.topindenxing1{
+    width: 30%;
+    display: flex;
+    margin: 5px;
+    height: 100%;
+    
+    
+
+}
+
+.topindenxing2{
+    width: 30%;
+    display: flex;
+    
+    justify-content: center;
+}
+.topindenxing3{
+    width: 10%;
+    display: flex;
+    
+    justify-content: center;
+}
+.topindenxing4{
+    width: 10%;
+    display: flex;
+justify-content: center;
+    
+}
+.topindxing5{
+    display: flex;
+    justify-content: space-around;
+    width: 10%;
+}
+.topindxing5 span{
+    cursor: pointer;
+    
 }
