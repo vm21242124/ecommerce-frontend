@@ -100,7 +100,7 @@ export const GetAllProducts = () => {
         const fetchData = async () => {
             const response = await axios.get('/product/all');
             setData(response.data.product);
-            console.log(data);
+        
 
         };
         fetchData();
@@ -124,7 +124,7 @@ export const GetAllProducts = () => {
     )
 }
 export const Product1 = (props) => {
-    console.log(props);
+    
     return (
         <div className="topindenxing">
             <div className='topindxing1'><p>{props.id}</p></div>
@@ -137,7 +137,7 @@ export const Product1 = (props) => {
                 <span>
                     <BiEditAlt/>
                 </span>
-                <span>
+                <span >
                     <AiOutlineDelete />
                 </span>
             </div>
