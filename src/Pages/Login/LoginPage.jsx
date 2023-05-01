@@ -27,7 +27,7 @@ const LoginPage = () => {
 
     const pass = details.password;
     axios
-      .post("http://localhost:5000/api/user/signin", {
+      .post("/user/signin", {
         email,
         password: pass,
       })

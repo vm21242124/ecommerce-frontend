@@ -135,7 +135,7 @@ export const Product1 = (props) => {
                     <AiOutlineEye/>
                 </span>
                 <span>
-                    <BiEditAlt  />
+                    <BiEditAlt/>
                 </span>
                 <span>
                     <AiOutlineDelete />

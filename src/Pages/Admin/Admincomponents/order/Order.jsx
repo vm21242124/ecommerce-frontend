@@ -2,7 +2,11 @@ import React from 'react'
 
 const Order = () => {
   return (
-    <div>Order card</div>
+    <div className="AdminOrder">
+      <div className="AdminOrder-header">
+        
+      </div>
+    </div>
   )
 }
 
