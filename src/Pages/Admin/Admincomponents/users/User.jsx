@@ -1,8 +1,11 @@
 import React from 'react'
 
 const User = () => {
+
   return (
-    <div>User card</div>
+    <div className="manageusers">
+
+    </div>
   )
 }
 
