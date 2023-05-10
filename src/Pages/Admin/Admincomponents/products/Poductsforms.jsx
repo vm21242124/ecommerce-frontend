@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Productform.css'
 import { BiEditAlt } from 'react-icons/bi'
-import { AiOutlineDelete,AiOutlineEye } from 'react-icons/ai'
+import { AiOutlineDelete, AiOutlineEye } from 'react-icons/ai'
 
 import axios from 'axios';
 export const CreateProductforms = () => {
-    const [product, setProduct] = useState({ name: "", price: "", description: "", stock: 0 })
+    const [product, setProduct] = useState({ name: "", price: "", description: "", stock: 0, collectionId: "" })
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProduct((prevState) => ({
@@ -21,7 +21,7 @@ export const CreateProductforms = () => {
     formdata.append('name', product.name)
     formdata.append('price', product.price)
     formdata.append('description', product.description)
-    formdata.append('collectionId', "644e635a5cc32ae013c1a9a3")
+    formdata.append('collectionId', product.collectionId ? product.collectionId : "645b1fb8b5f32f21261445aa")
 
     formdata.append('stock', product.stock)
     formdata.append('file', file);
@@ -65,14 +65,7 @@ export const CreateProductforms = () => {
                         onChange={handleChange}
                         required={true}
                     />
-                    <input
-                        className="in1"
-                        type="file"
 
-
-                        onChange={handleFileChange}
-                        required={true}
-                    />
                     <input
                         className="in1"
                         name='stock'
@@ -80,6 +73,23 @@ export const CreateProductforms = () => {
                         placeholder="stocks"
                         value={product.stock}
                         onChange={handleChange}
+                        required={true}
+                    />
+                    <input
+                        className="in1"
+                        name='collectionId'
+
+                        placeholder="collectionId"
+                        value={product.collectionId}
+                        onChange={handleChange}
+
+                    />
+                    <input
+                        className="in1"
+                        type="file"
+
+
+                        onChange={handleFileChange}
                         required={true}
                     />
                 </div>
@@ -100,7 +110,7 @@ export const GetAllProducts = () => {
         const fetchData = async () => {
             const response = await axios.get('/product/all');
             setData(response.data.product);
-        
+
 
         };
         fetchData();
@@ -124,7 +134,7 @@ export const GetAllProducts = () => {
     )
 }
 export const Product1 = (props) => {
-    
+
     return (
         <div className="topindenxing">
             <div className='topindxing1'><p>{props.id}</p></div>
@@ -132,10 +142,10 @@ export const Product1 = (props) => {
             <div className='topindxing3'><p>{props.price} </p></div>
             <div className='topindxing4'><p>{props.stock}</p></div><div className='topindxing5'>
                 <span>
-                    <AiOutlineEye/>
+                    <AiOutlineEye />
                 </span>
                 <span>
-                    <BiEditAlt/>
+                    <BiEditAlt />
                 </span>
                 <span >
                     <AiOutlineDelete />
