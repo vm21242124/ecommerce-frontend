@@ -4,3 +4,36 @@
     align-items: center;
     width: 100%;
 }
+.TopProducts{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.products{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 80%;
+    align-items: center;
+   background-color: rgb(255, 255, 255); 
+   color: black;
+   padding: 10px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+.product:hover{
+    background-color: rgb(175, 175, 175);
+    border: 1px solid rgb(104, 93, 255);
+
+}
+.pp{
+    width: 80%;
+}
