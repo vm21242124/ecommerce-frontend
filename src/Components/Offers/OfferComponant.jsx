@@ -9,7 +9,7 @@ const OfferComponant = () => {
         <div className="offercomponant">
             <div className="newArrivals">
 
-                <img className='f' src={download} />
+                <img className='f' src={download} alt="" />
             </div>
             <div className="info">
                 <h3>Lorem ipsum dolor sit.</h3>
