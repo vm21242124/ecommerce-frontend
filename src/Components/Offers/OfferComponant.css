@@ -1,0 +1,23 @@
+.offercomponant{
+    height: 350px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    background-color: rgb(234, 234, 234);
+}
+.f{
+    height: 100%;
+}
+.newArrivals{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info{
+    width: 30%;
+    color: rgb(0, 0, 0);
+}

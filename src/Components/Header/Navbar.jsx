@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import {MdKeyboardArrowDown} from 'react-icons/md'
 import { useSelector } from 'react-redux'
 const Navbar = () => {
-    const username=useSelector((state)=>state.user.user.name)
+    const user=useSelector((state)=>state.user.user)
    
     return (
         <div className="navbar">
@@ -22,7 +22,8 @@ const Navbar = () => {
 
                 <AiOutlineShoppingCart className='car' />
                 <span >cart</span>
-                <span>{username? "Hi,"+ username +" ! "  :"login"}</span>
+                <span>{user?.name ? "Hi,"+ user.name+" ! "  :"login"}</span>
+                <span><MdKeyboardArrowDown/></span>
 
             </div>
         </div>
