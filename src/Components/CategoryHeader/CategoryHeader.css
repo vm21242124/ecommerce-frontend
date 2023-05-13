@@ -1,0 +1,13 @@
+.categories{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+.category{
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
