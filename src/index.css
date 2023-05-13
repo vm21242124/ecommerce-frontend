@@ -32,3 +32,8 @@ code {
   border-radius: 5px;
   width: 100%;
 }
+.NavLink{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
