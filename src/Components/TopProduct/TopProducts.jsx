@@ -31,7 +31,6 @@ export const Product=({id,name,img,price})=>{
     const handleAddToCart=(e)=>{
         e.preventDefault();
         const product={id,name,img,price}
-        console.log(product);
        dispatch({
         type:"addToCart",
         payload:product
