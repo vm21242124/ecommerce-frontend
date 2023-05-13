@@ -4,9 +4,10 @@ import { CiSearch } from 'react-icons/ci'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import {MdKeyboardArrowDown} from 'react-icons/md'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 const Navbar = () => {
     const user=useSelector((state)=>state.user.user)
-   
+
     return (
         <div className="navbar">
             <div className="logoside">
@@ -22,7 +23,7 @@ const Navbar = () => {
 
                 <AiOutlineShoppingCart className='car' />
                 <span >cart</span>
-                <span>{user?.name ? "Hi,"+ user.name+" ! "  :"login"}</span>
+                <span>{user?.name ?  <span>Hi {user.name} !</span>  : <NavLink className="NavLink" to="/login"><span>login</span></NavLink>}</span>
                 <span><MdKeyboardArrowDown/></span>
 
             </div>
