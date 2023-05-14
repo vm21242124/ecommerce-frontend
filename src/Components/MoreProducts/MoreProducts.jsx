@@ -1,0 +1,27 @@
+import React, { useEffect, useState } from 'react'
+import './MoreProducts.css'
+import axios from 'axios'
+import { Product } from '../TopProduct/TopProducts'
+const MoreProducts = () => {
+    const [products,setProducts]=useState([])
+    useEffect(()=>{
+        axios.get(`/product/all`).then((res)=>setProducts(res.data.product)).catch((e)=>console.log(e))
+
+},[products])
+  return (
+    <div className="TopProducts">
+            <div className="heading">
+
+                <h3>More Products</h3>
+
+            </div>
+            <div className="products">
+            {products?.map((item,i)=>(
+                    <Product key={i} id={item._id} name={item.name} price={item.price} img={item.photos[0].secure_url}/>
+                ))}
+            </div>
+        </div>
+  )
+}
+
+export default MoreProducts
