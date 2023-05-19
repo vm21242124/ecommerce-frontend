@@ -126,9 +126,9 @@ export const GetAllProducts = () => {
             </div>
             <div className="productsfromapi">
 
-                {data.length !== 0 ? data?.map((item, i) => (
+                { data?.map((item, i) => (
                     <Product1 key={i} name={item.name} price={item.price} stock={item.stock} id={item._id} />
-                )) : <p>data is not available</p>}
+                )) }
             </div>
         </div>
     )
@@ -151,6 +151,7 @@ export const Product1 = (props) => {
                     <AiOutlineDelete />
                 </span>
             </div>
+            
         </div>
     )
 }

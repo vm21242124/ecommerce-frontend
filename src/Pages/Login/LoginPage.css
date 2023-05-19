@@ -34,3 +34,11 @@
 .nameconcat input{
     margin-right: 5px;
 }
+.msgbox{
+    width: 70%;
+    display: flex;height: 35px;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(147, 74, 255);
+    color: rgb(0, 0, 0);
+}

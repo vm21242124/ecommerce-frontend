@@ -1,7 +1,7 @@
 import React from 'react'
 import './UserCart.css'
 import Navbar from '../../Components/Header/Navbar'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 const UserCart = () => {
     return (
         <>
@@ -26,7 +26,21 @@ const UserCart = () => {
 }
 const CartItems = () => {
     const cartItems = useSelector((state) => state.cart.cart)
-    console.log(cartItems);
+    const dispatch=useDispatch();
+    const decrementQuantity=(item)=>{
+        console.log(item);
+        dispatch({
+            type:"removeFromCart",
+            payload:item
+        })
+    }
+    const incrementQuantity=(item)=>{
+        console.log(item);
+        dispatch({
+            type:"addToCart",
+            payload:item
+        })
+    }
     return (
         <>
             {cartItems.map((item, i) => (
@@ -43,9 +57,9 @@ const CartItems = () => {
                             <p>Price : <b>{item.price}</b></p>
                         </div>
                         <div className="item-info">
-                            <button className='incbtnd'>-</button>
+                            <button onClick={()=>decrementQuantity(item)} className='incbtnd'>-</button>
                             <p><b>{item.quantity}</b></p>
-                            <button className='incbtni'>+</button>
+                            <button onClick={()=>incrementQuantity(item)} className='incbtni'>+</button>
                         </div>
                     </div>
                 </div>
