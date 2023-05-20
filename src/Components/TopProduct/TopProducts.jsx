@@ -43,7 +43,7 @@ export const Product=({id,name,img,price})=>{
     const pname=appendStringAfterLength(name,50,".....")
     return(
         <div className="product">
-            <div className="piimg">
+            <div>
                 <img onClick={()=>nav(`/product/${id}`)} src={img} alt="" className="pp" />
             </div>
             <h4 onClick={()=>nav(`/product/${id}`)}>{pname}</h4>
