@@ -1,0 +1,29 @@
+.searchProductPage{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+.searchProductPage__container{
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    width: 80%;
+}
+.ww{
+    width: 300px;
+    object-fit: contain;
+    margin: 10px;
+}
+.searchproduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+}
