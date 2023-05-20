@@ -2,20 +2,16 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './Categories.css'
 const Categories = () => {
-  const [name,setName]=useState("")
-  const handleSubmit =(e)=>{
+  const [name, setName] = useState("")
+  const handleSubmit = (e) => {
     e.preventDefault();
-     axios.post('/collections/create',{name}).then((res)=>{
-      if(res.status===200){
+    axios.post('/collections/create', { name }).then((res) => {
+      if (res.status === 200) {
         alert("collection created successfully")
       }
-     }).catch((e)=>console.log(e))
-    
+    }).catch((e) => console.log(e))
+
   }
-  const [collection,setCollection]=useState([]);
-  useEffect(()=>{
-    axios.get('/collections/all').then((res)=>setCollection(res.data)).catch(e=>console.log(e))
-  })
   return (
     <div className="createproductForm">
       <h1>create collection</h1>
@@ -25,10 +21,10 @@ const Categories = () => {
           <input
             className="in1"
             placeholder="collection name"
-            onChange={(e)=>setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
             required={true}
           />
-         
+
         </div>
         <div className="bn">
 
@@ -37,18 +33,28 @@ const Categories = () => {
           </button>
         </div>
       </form>
-        <h1>All Categories</h1>
-      <div className="allavailablecartegories">
-        {collection.length!==0 ? collection.map((item,i)=>(
-          <div className='collections' key={i}>
-            <span>{item.name}</span>
-          </div>
-        )):
-        <div><span>not Categories yet create now</span></div>
-      }
-      </div>
+      <h1>All Categories</h1>
+      <AllAvailablecartegories />
+
     </div>
+
   )
 }
 
+export const AllAvailablecartegories = () => {
+  const [collection, setCollection] = useState([]);
+  useEffect(() => {
+    axios.get('/collections/all').then((res) => setCollection(res.data)).catch(e => console.log(e))
+  })
+  return (
+    <div className="allavailablecartegories">
+      {collection.length !== 0 ? collection.map((item, i) => (
+        <div className='collections' key={i}>
+          <span>{item.name}</span>
+        </div>
+      )) :
+        <div><span>not Categories yet create now</span></div>}
+    </div>
+  )
+}
 export default Categories
