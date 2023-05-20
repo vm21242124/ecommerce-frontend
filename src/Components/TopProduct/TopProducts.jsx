@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './TopProducts.css'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { appendStringAfterLength } from '../../UtilityFunctions'
 
 
 const TopProducts = () => {
@@ -27,6 +29,7 @@ const TopProducts = () => {
     )
 }
 export const Product=({id,name,img,price})=>{
+    const nav=useNavigate()
     const dispatch=useDispatch();
     const handleAddToCart=(e)=>{
         e.preventDefault();
@@ -37,13 +40,15 @@ export const Product=({id,name,img,price})=>{
        })
 
     }
+    const pname=appendStringAfterLength(name,50,".....")
     return(
         <div className="product">
             <div className="piimg">
-                <img src={img} alt="" className="pp" />
+                <img onClick={()=>nav(`/product/${id}`)} src={img} alt="" className="pp" />
             </div>
-            <h4>{name}</h4>
-        <h5>{price}</h5>
+            <h4 onClick={()=>nav(`/product/${id}`)}>{pname}</h4>
+            <p className='ppe'>₹ <h5>{price}</h5></p>
+        
         <button onClick={handleAddToCart} className="lgbutton">add to cart</button>
         </div>
     )
