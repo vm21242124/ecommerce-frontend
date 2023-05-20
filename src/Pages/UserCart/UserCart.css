@@ -30,8 +30,9 @@
     margin: 10px;
 }
 .cart-item-image{
-    height: 90%;
-    width: 80px;
+  
+    width: 200px;
+    object-fit: contain;
 }
 .cart-item-name{
     display: flex;
