@@ -2,6 +2,7 @@ import React from 'react'
 import './UserCart.css'
 import Navbar from '../../Components/Header/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 const UserCart = () => {
     return (
         <>
@@ -28,19 +29,20 @@ const CartItems = () => {
     const cartItems = useSelector((state) => state.cart.cart)
     const dispatch=useDispatch();
     const decrementQuantity=(item)=>{
-        console.log(item);
+        
         dispatch({
             type:"removeFromCart",
             payload:item
         })
     }
     const incrementQuantity=(item)=>{
-        console.log(item);
+       
         dispatch({
             type:"addToCart",
             payload:item
         })
     }
+    const nav=useNavigate()
     return (
         <>
             {cartItems.map((item, i) => (
@@ -50,7 +52,7 @@ const CartItems = () => {
                     </div>
                     <div className="cart-item-name">
 
-                        <h4>{item.name}</h4>
+                        <h4 style={{cursor:"pointer"}} onClick={()=>nav(`/product/${item.id}`)}>{item.name}</h4>
                         <div className="item-info">
 
                             
