@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <AiOutlineShoppingCart className='car' />
                 <NavLink className="NavLink" to="/cart"><span >cart</span></NavLink>
-                <span>{user?.name ? <span>Hi {user.name} !</span> : <NavLink className="NavLink" to="/login"><span>login</span></NavLink>}</span>
+                <span>{user?.name ? <span style={{cursor:"pointer"}} onClick={()=>nav(`/profile`)}>Hi {user.name} !</span> : <NavLink className="NavLink" to="/login"><span>login</span></NavLink>}</span>
                 <span><MdKeyboardArrowDown /></span>
 
             </div>
