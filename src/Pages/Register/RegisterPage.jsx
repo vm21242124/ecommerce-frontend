@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RegisterPage = () => {
+  const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false)
   const [details, setDetails] = useState({
     email: "",
     password: "",
@@ -10,7 +12,7 @@ const RegisterPage = () => {
     fname: "",
     lname: "",
   });
-  const [showm, setShowm] = useState(false);
+
   const nav = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +23,7 @@ const RegisterPage = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     const name = details.fname + " " + details.lname;
     const email = details.email;
 
@@ -35,12 +38,15 @@ const RegisterPage = () => {
         .then((res) => {
           if (res.status === 200) {
             nav("/login");
-          }
-          if (res.status === 403) {
-            setShowm(true);
+          }else if (res.status === 403) {
+            setLoading(false)
+            setMsg("User Already Exits")
           }
         })
-        .catch((e) => console.log(e));
+        .catch((e) => {
+          setLoading(false)
+          
+        });
     } else {
       console.log("pass word not matching");
     }
@@ -101,11 +107,11 @@ const RegisterPage = () => {
                 required={true}
               />
             </div>
-            <button type="submit" className="lgbutton">
-              Register
+            <button disabled={loading===true} type="submit" className="lgbutton">
+              {loading ===true ? "Loading..." : "Register"}
             </button>
           </form>
-          {showm ? <p>user Already exits</p> : ""}
+
           <NavLink>
             <p className="ln">Forgot Password</p>
           </NavLink>
@@ -113,6 +119,7 @@ const RegisterPage = () => {
             <p className="ln">Already have an account ? Login Now</p>
           </NavLink>
         </div>
+        {msg !== "" ? <div className="msgbox"><p>{msg}</p></div> : ""}
       </div>
     </div>
   );
