@@ -19,16 +19,22 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/register" element={<RegisterPage />} />
-          <Route exact path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route exact path="/cart" element={<UserCart/>} />
-          <Route exact path="/product/:id" element={<ProductPage/>}/>
-          <Route exact path="/search/:search" element={<SearchPage/>}/>
-          <Route exact path="/categoryproducts/:id" element={<SearchBycategory/>}/>
-          <Route exact path="/profile" element={<ProfilePage/>}/>
 
+          <Route exact path="/register" element={<RegisterPage />} />
+
+          <Route exact path="/cart" element={<UserCart />} />
+          <Route exact path="/product/:id" element={<ProductPage />} />
+          <Route exact path="/search/:search" element={<SearchPage />} />
+          <Route
+            exact
+            path="/categoryproducts/:id"
+            element={<SearchBycategory />}
+          />
+          <Route exact path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </>
