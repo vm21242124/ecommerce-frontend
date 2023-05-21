@@ -3,6 +3,7 @@ import './UserCart.css'
 import Navbar from '../../Components/Header/Navbar'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import Totalcart from '../../Components/totalcart/Totalcart'
 const UserCart = () => {
     return (
         <>
@@ -17,7 +18,7 @@ const UserCart = () => {
                         <CartItems />
                     </div>
                     <div className="cartprice">
-
+                        <Totalcart/>
                     </div>
                 </div>
 
