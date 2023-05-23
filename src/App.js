@@ -10,6 +10,7 @@ import ProductPage from "./Pages/ProductPage/ProductPage";
 import SearchPage from "./Pages/SearchPage/SearchPage";
 import SearchBycategory from "./Pages/SearchByCat/SearchBycategory";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
+import OrderAddress from "./Pages/OrderAddress/OrderAddress";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 axios.defaults.withCredentials = true;
@@ -35,6 +36,7 @@ function App() {
             element={<SearchBycategory />}
           />
           <Route exact path="/profile" element={<ProfilePage />} />
+          <Route exact path="/address" element={<OrderAddress/>} />
         </Routes>
       </BrowserRouter>
     </>
