@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './Totalcart.css'
 import { AiOutlineClose } from 'react-icons/ai'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 const Totalcart = () => {
   const cart = useSelector((state) => state.cart.cart)
 
+  const user = useSelector((state) => state.user.user)
+  const nav=useNavigate()
+ 
   const total = cart.reduce((total, item) => total + item.price * item.quantity, 0)
   const [coupon, setCoupons] = useState([])
   useEffect(() => {
@@ -13,7 +18,19 @@ const Totalcart = () => {
   }, [])
   const [appliedcopon, setAppliedcoupon] = useState("")
   const [discount, setDiscount] = useState(0)
+  const dispatch=useDispatch()
 
+
+  const handleCheckout=(e)=>{
+    e.preventDefault();
+    if(user===null){
+      nav('/login')
+      return;
+    }else{
+      nav("/address")
+    }
+  
+  }
   return (
     <div className="totalprice">
       <div className="pricecmp">
@@ -25,19 +42,30 @@ const Totalcart = () => {
         <div className="cpns">
           {coupon.map((item, i) => (
             <div className="onecoupon" key={i}>
-              <p onClick={() => { setAppliedcoupon(item?.code); setDiscount(item.discount) }}>{item?.code}</p>
+              <p onClick={() => { 
+                setAppliedcoupon(item?.code);
+                dispatch({
+                  type:"setcoupon",
+                  payload:appliedcopon
+                })
+                 setDiscount(item.discount) }}>{item?.code}</p>
             </div>
           ))}
         </div>
 
 
       </div>
-      <button className="lgbutton">BUY NOW</button>
+      <button className="lgbutton" onClick={handleCheckout}>BUY NOW</button>
       <div className="appliedCoupons">
         <p>Applied Coupon</p>
         {appliedcopon !== "" ?
           <div className="cmp">
-            <p>{appliedcopon} <AiOutlineClose style={{ cursor: "pointer" }} onClick={() => {setAppliedcoupon("");setDiscount(0)}} /></p>
+
+            <p>{appliedcopon} <AiOutlineClose style={{ cursor: "pointer" }} onClick={() => {setAppliedcoupon("");
+            dispatch({
+              type:"removeappliedcoupon"
+            })
+            setDiscount(0)}} /></p>
           </div> : ""
         }
       </div>
