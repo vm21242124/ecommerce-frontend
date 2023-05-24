@@ -11,6 +11,7 @@ import SearchPage from "./Pages/SearchPage/SearchPage";
 import SearchBycategory from "./Pages/SearchByCat/SearchBycategory";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import OrderAddress from "./Pages/OrderAddress/OrderAddress";
+import PaymentSucess from "./Components/success/PaymentSucess";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 axios.defaults.withCredentials = true;
@@ -37,6 +38,7 @@ function App() {
           />
           <Route exact path="/profile" element={<ProfilePage />} />
           <Route exact path="/address" element={<OrderAddress/>} />
+          <Route exact path="/paymentSuccess" element={<PaymentSucess/>}/>
         </Routes>
       </BrowserRouter>
     </>
