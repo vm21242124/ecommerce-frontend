@@ -21,3 +21,22 @@
     width: 30%;
     color: rgb(0, 0, 0);
 }
+.arrbuttons{
+    height: 100%;
+    width: 20%;
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+
+}
+.arrbuttons:hover{
+    background-color: rgb(155, 155, 155);
+    cursor: pointer;
+}
+.arrows{
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}

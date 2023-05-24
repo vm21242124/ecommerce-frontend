@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import './OrderAddress.css'
 import axios from 'axios'
 const OrderAddress = () => {
     const nav = useNavigate();
     const cart = useSelector((state) => state.cart.cart)
+    console.log(cart.length);
     const appliedCoupon = useSelector((state) => state.coupon.appliedCopon)
-    const dispatch=useDispatch()
+
     const [address, setAddress] = useState("")
     const [phoneNumber, setPhoneno] = useState("")
     
@@ -21,7 +22,8 @@ const OrderAddress = () => {
         }
     )))
     useEffect(() => {
-        if (!cart.length) {
+        
+        if (cart.length===0) {
             nav("/")
         }
         if (paymentRes===200) {

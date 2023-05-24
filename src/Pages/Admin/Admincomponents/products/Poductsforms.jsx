@@ -82,7 +82,7 @@ export const CreateProductforms = () => {
                     />
                    
                     <h3>choose category</h3>
-                    <div className="allavailablecartegories">
+                    <div className="allavailablecartegories" style={{height:"50px" ,overflow:"auto"}}>
                         {collection.length !== 0 ? collection.map((item, i) => (
                             <div onClick={() => {
                                 
