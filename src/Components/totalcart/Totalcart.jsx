@@ -18,6 +18,7 @@ const Totalcart = () => {
   }, [])
   const [appliedcopon, setAppliedcoupon] = useState("")
   const [discount, setDiscount] = useState(0)
+  const [appliedCoponid,setAppliedCouponId]=useState("")
   const dispatch=useDispatch()
 
 
@@ -44,9 +45,10 @@ const Totalcart = () => {
             <div className="onecoupon" key={i}>
               <p onClick={() => { 
                 setAppliedcoupon(item?.code);
+                setAppliedCouponId(item?._id)
                 dispatch({
                   type:"setcoupon",
-                  payload:appliedcopon
+                  payload:appliedCoponid
                 })
                  setDiscount(item.discount) }}>{item?.code}</p>
             </div>
