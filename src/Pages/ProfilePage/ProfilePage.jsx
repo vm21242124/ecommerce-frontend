@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import Navbar from '../../Components/Header/Navbar'
 import './ProfilePage.css'
 import { BiEditAlt } from 'react-icons/bi'
+import axios from 'axios'
 const ProfilePage = () => {
 
   const [activeform, setActiveform] = useState("profile")
@@ -19,8 +20,10 @@ const ProfilePage = () => {
             <span onClick={() => setActiveform("logout")}>LOGOUT</span>
           </div>
           <div className="tabforms">
-            {activeform === "profile" ? <ProfileFrom /> : <OrderForm />}
-
+            {activeform === "profile" ? <ProfileFrom /> : ""}
+            {activeform === "order" ? <OrderForm /> : ""}
+            {activeform === "logout" ? "" : ""}
+            
           </div>
         </div>
       </div>
@@ -59,10 +62,51 @@ export const ProfileFrom = () => {
   )
 }
 export const OrderForm = () => {
+  const [order, setOrder] = useState([])
+  useEffect(() => {
+    axios.get("order//user/all").then((res) => setOrder(res.data.orders)
+
+    ).catch((e) => console.log(e.message))
+  }, [])
+  const [fetchedProducts, setFetchedProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const fetchedProducts = [];
+      for (let item of order) {
+        for (let ele of item.products) {
+          try {
+            const response = await axios.get(`/product/id/${ele.productId}`);
+            fetchedProducts.push(response.data.product);
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+      }
+      setFetchedProducts(fetchedProducts);
+      console.log(fetchedProducts);
+    };
+
+    fetchProducts();
+  }, [order]);
+
   return (
+  
     <div className="profileFrom">
-      orderpage
+      {fetchedProducts.map((product, index) => (
+        <div className="prod" key={index}>
+         <div className="prodimg">
+          <img src={product.photos[0]?.secure_url} alt="product" />
+         </div>
+         <div className="prodname"><h4> {product.name}</h4></div>
+          {order.map((item,i)=>(
+          <div className="status" key={i}>{item?.status}</div>
+        ))}
+        </div>
+        
+        
+      ))}
     </div>
+
   )
 }
 
