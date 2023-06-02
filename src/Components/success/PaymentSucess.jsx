@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './PaymentSucess.css'
+import { useDispatch } from 'react-redux'
 
 const PaymentSucess = () => {
   const nav=useNavigate()
-
+  const dispatch=useDispatch()
   useEffect(()=>{
     const timeout=setTimeout(()=>{
+      dispatch({
+        type:"clearCart"
+      })
       nav("/");
     },5000)
     return ()=>{

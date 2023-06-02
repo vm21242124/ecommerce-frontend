@@ -14,7 +14,9 @@ import OrderAddress from "./Pages/OrderAddress/OrderAddress";
 import PaymentSucess from "./Components/success/PaymentSucess";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
+
 axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = "https://shoppe-ecome-app.onrender.com/api";
 
 function App() {
   return (

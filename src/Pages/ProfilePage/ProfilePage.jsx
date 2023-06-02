@@ -23,7 +23,7 @@ const ProfilePage = () => {
             {activeform === "profile" ? <ProfileFrom /> : ""}
             {activeform === "order" ? <OrderForm /> : ""}
             {activeform === "logout" ? "" : ""}
-            
+
           </div>
         </div>
       </div>
@@ -63,11 +63,13 @@ export const ProfileFrom = () => {
 }
 export const OrderForm = () => {
   const [order, setOrder] = useState([])
-  useEffect(() => {
-    axios.get("order//user/all").then((res) => setOrder(res.data.orders)
+  const user = useSelector((state) => state.user?.user)
+   useEffect(() => {
+      axios.get(`/order/user`).then((res) => res.status!==400?setOrder(res.data.orders):setOrder([])
+      ).catch((e) => console.log(e.message))
+    }, []) 
+  
 
-    ).catch((e) => console.log(e.message))
-  }, [])
   const [fetchedProducts, setFetchedProducts] = useState([]);
   useEffect(() => {
     const fetchProducts = async () => {
@@ -90,22 +92,23 @@ export const OrderForm = () => {
   }, [order]);
 
   return (
-  
-    <div className="profileFrom">
-      {fetchedProducts.map((product, index) => (
-        <div className="prod" key={index}>
-         <div className="prodimg">
-          <img src={product.photos[0]?.secure_url} alt="product" />
-         </div>
-         <div className="prodname"><h4> {product.name}</h4></div>
-          {order.map((item,i)=>(
-          <div className="status" key={i}>{item?.status}</div>
-        ))}
-        </div>
-        
-        
-      ))}
-    </div>
+    <>
+      {user !== null ?
+        <div className="profileFrom">
+          {fetchedProducts.map((product, index) => (
+            <div className="prod" key={index}>
+              <div className="prodimg">
+                <img src={product.photos[0]?.secure_url} alt="product" />
+              </div>
+              <div className="prodname"><h4> {product.name}</h4></div>
+
+              <div className="status">ORDERED</div>
+            </div>
+
+
+          ))}
+        </div> : ""}
+    </>
 
   )
 }
