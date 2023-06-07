@@ -80,8 +80,8 @@ const LoginPage = () => {
             </div>
             <button disabled={loading===true} className="lgbutton">{loading===true?"Loading":"Login"}</button>
           </form>
-          <NavLink>
-            <p className="ln">Forgot Password</p>
+          <NavLink to="/forgotpass">
+            <p className="ln" >Forgot Password</p>
           </NavLink>
           <NavLink to="/register">
             <p className="ln">Not have an Account ? Register now</p>

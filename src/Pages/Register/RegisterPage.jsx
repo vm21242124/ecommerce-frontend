@@ -112,8 +112,8 @@ const RegisterPage = () => {
             </button>
           </form>
 
-          <NavLink>
-            <p className="ln">Forgot Password</p>
+          <NavLink to="/forgotpass">
+            <p className="ln" >Forgot Password</p>
           </NavLink>
           <NavLink to="/login">
             <p className="ln">Already have an account ? Login Now</p>
