@@ -21,7 +21,11 @@ const SearchPage = () => {
 
                         <div key={i} className="searchproduct" style={{cursor:"pointer"}}>
                             <img onClick={() => nav(`/product/${item?._id}`)} className='ww' src={item.photos[0].secure_url} alt="s" />
+                            <div className="inf">
+
                             <h3 onClick={() => nav(`/product/${item?._id}`)}>{item.name}</h3>
+                            <span style={{fontWeight:"600",color:"violet"}}>₹{item.price}</span>
+                            </div>
                         </div>
                     )) : <div className='nf'><h1>search product not available</h1>
                     </div>}
