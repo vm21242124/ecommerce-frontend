@@ -13,6 +13,7 @@ import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import OrderAddress from "./Pages/OrderAddress/OrderAddress";
 import PaymentSucess from "./Components/success/PaymentSucess";
 import Forgotpass from "./Pages/ForgotPasspage/Forgotpass";
+import Footer from "./Components/Footer/Footer";
 
 axios.defaults.baseURL = "http://localhost:5000/api";
 
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/paymentSuccess" element={<PaymentSucess />} />
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </>
   );
 }
