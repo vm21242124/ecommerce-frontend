@@ -3,11 +3,12 @@ import './MoreProducts.css'
 import axios from 'axios'
 import { Product } from '../TopProduct/TopProducts'
 const MoreProducts = () => {
-    const [products,setProducts]=useState([])
+    const [moreproducts,setMoreProducts]=useState([])
     useEffect(()=>{
-        axios.get(`/product/all`).then((res)=>setProducts(res.data.product)).catch((e)=>console.log(e))
+        axios.get(`/product/all`).then((res)=>setMoreProducts(res.data.product)).catch((e)=>console.log(e))
 
-},[products])
+},[])
+const products=moreproducts.slice(0,4)
   return (
     <div className="TopProducts">
             <div className="heading">
