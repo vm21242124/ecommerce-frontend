@@ -15,9 +15,9 @@ import PaymentSucess from "./Components/success/PaymentSucess";
 import Forgotpass from "./Pages/ForgotPasspage/Forgotpass";
 import Footer from "./Components/Footer/Footer";
 
-// axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = "http://localhost:5000/api";
 
-axios.defaults.baseURL = "https://shoppe-ecome-app.onrender.com/api";
+// axios.defaults.baseURL = "https://shoppe-ecome-app.onrender.com/api";
 axios.defaults.withCredentials = true;
 
 function App() {
