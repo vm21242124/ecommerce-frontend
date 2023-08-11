@@ -18,7 +18,7 @@ const products=moreproducts.slice(0,4)
             </div>
             <div className="products">
             {products?.map((item,i)=>(
-                    <Product key={i} id={item._id} name={item.name} price={item.price} img={item.photos[0].secure_url}/>
+                    <Product key={i} id={item._id} name={item.name} price={item.price} img={item.photos[0]?.secure_url}/>
                 ))}
             </div>
         </div>
